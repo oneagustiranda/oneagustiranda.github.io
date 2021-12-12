@@ -81,7 +81,7 @@ img {
 
 .main {
     margin: auto;
-    max-width: 1200px;
+    max-width: 75em;
 }
 
 .container {
@@ -188,12 +188,12 @@ Navbar
 --------------*/
 ul li a {
     color:rgb(255, 255, 255);
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 ul li a.active {
     font-weight: 750;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color:rgb(119, 174, 211);
     border-bottom: 3px solid rgb(119, 174, 211);
 }
@@ -276,14 +276,11 @@ ul li a:hover {
         width: 2rem;
         border: 0;
         aspect-ratio: 1;
-        top: 4rem;
+        top: 3rem;
         right: 2rem;
     }
 
     .logo {
-        display: block;
-        position: absolute;
-        top: 1rem;
         max-width: 5rem;
     }
 
@@ -307,10 +304,7 @@ ul li a:hover {
     .home-img {
         order: -1;
     }
-
-    .home-img .img-box {
-        max-width: 200px;
-    }
+    
 }
 
 @media (min-width: 37em) and (max-width: 55em) {
@@ -324,5 +318,28 @@ ul li a:hover {
         --gap: 3rem;
         padding-block: 1.7rem;
         padding-inline: clamp(3rem, 8vw, 10rem);
+    }
+}
+
+@media (max-width: 44em) {
+    .home-text h1 {
+        font-size: 38px;
+    }
+
+    .home-text h2 {
+        font-size: 18px;
+    }
+
+    .home-img .img-box {
+        max-width: 180px;
+    }
+}
+
+/* Resolusi min 1120px */
+@media (min-width: 70em) { 
+    .home-section {
+        width:68em;
+        display: flex;
+        padding: 120px 0;
     }
 }
