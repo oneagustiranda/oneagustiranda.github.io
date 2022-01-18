@@ -80,10 +80,6 @@ img {
 }
 
 .main {
-    /* margin: auto;
-    max-width: 75em; */
-
-    display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -244,7 +240,7 @@ ul li a:hover {
 }
 
 /* Responsive */
-
+/* Media Mobile */
 @media (max-width: 37em) {
     .primary-navigation{
         --gap: 2em;
@@ -302,13 +298,23 @@ ul li a:hover {
     .home-img {
         order: -1;
     }
-    
+
+    .main {
+        margin: auto;
+    }
 }
 
-@media (min-width: 37em) and (max-width: 55em) {
+/* Tab */
+/* min resolusi 592px dan max resolusi 904px */
+@media (min-width: 37em) and (max-width: 56em) {
     .primary-navigation a > span[aria-hidden] {
         display: none;
     }
+
+    .main {
+        margin: auto;
+    }
+
 }
 
 @media (min-width: 37em) {
@@ -319,6 +325,7 @@ ul li a:hover {
     }
 }
 
+/* Max resolusi 704px */
 @media (max-width: 44em) {
     .home-text h1 {
         font-size: 38px;
@@ -333,12 +340,23 @@ ul li a:hover {
     }
 }
 
-/* Resolusi min 1120px */
-@media (min-width: 70em) { 
+/* Resolusi min 897px */
+/* desktop */
+@media (min-width: 56.1em) { 
     .home-section {
         width:68em;
         display: flex;
         padding: 120px 0;
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .card:hover {
+        z-index: 9999;
+        transform: scale(1.1);
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
     }
 }
 
@@ -357,20 +375,12 @@ ul li a:hover {
 .card {
     position: relative;
     width: 300px;
-    height: 410px;
-    background: #fff;
-    border-radius: 10px;
+    height: 410px; 
     overflow: hidden;
     margin: 5px 8px;
 
     transition: 0.5s ease;
     cursor: pointer;
-}
-
-.card:hover {
-    z-index: 9999;
-    transform: scale(1.2);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
 
 .circle {
@@ -404,7 +414,6 @@ ul li a:hover {
     transform: translateX(-50%);
     width: 300px;
     height: 300px;
-    background: #ff0;
 }
 
 .circle .imgBx img {
@@ -425,6 +434,21 @@ ul li a:hover {
     padding: 18px 30px;
 }
 
+.card-back .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 110px;
+    padding: 18px 30px;
+    text-align: center;
+}
+
+.card-back .content p {
+    font-size: 0.8em;
+    margin-top: 1.5em;
+}
+
 .stack-label {
     background: rgb(213, 220, 243);
     font-size: calc(100%/1.6);
@@ -436,4 +460,38 @@ ul li a:hover {
     font-size: 1.4em;
     color: rgb(32, 30, 30);
     margin-top: 7px;
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+}
+
+.card-flip:hover {
+    transform: rotateY(180deg);
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fff;
+}
+
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: rgb(205, 230, 248);
+    color: rgb(32, 30, 30);
+    transform: rotateY(180deg);
 }
